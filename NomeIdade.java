@@ -6,19 +6,21 @@ public class NomeIdade {
 
 	public static void main(String[] args) {
 		
-		String nome;
-		int x;
+		
+		int atual = 2017;
 		
 		Scanner leitor = new Scanner(System.in);
 		
 		System.out.println("Digite um nome: ");
-		nome = leitor.nextLine();
+		String nome = leitor.nextLine();
 		System.out.println("Digite a idade: ");
-		x = leitor.nextInt();
-		System.out.println();
+		int idade = leitor.nextInt();
+		System.out.println("Digite o seu ano de nascimento: ");
+		int nascimento = leitor.nextInt();
 		
-		System.out.println(nome + " tem " + x + " anos.");
-
+		
+		System.out.println(nome + " tem " + idade + " anos.");
+		System.out.println("Ele fará " + (atual - nascimento) + " anos em " + atual + ".");
 	}
 
 }
