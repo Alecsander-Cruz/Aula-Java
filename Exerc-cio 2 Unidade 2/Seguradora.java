@@ -21,7 +21,7 @@ public class Seguradora {
 		System.out.println("Entre com uma opcÃ£o: ");
 	}
 	
-	public int tipoCliente(int opt){
+	public int tipoCliente(int opt){      
 		
 		scan = new Scanner(System.in);
 		
@@ -63,53 +63,27 @@ public class Seguradora {
 					cliente.setNome(scan.nextLine());
 					System.out.println("Digite o seu cpf: ");
 					pFisica.setCpf(scan.nextLine());
-					System.out.println();
+					System.out.println("Digite o endereço da residência: ");
+					cadRes.setEndereco(scan.nextLine());
+					System.out.println("Digite o valor do Imóvel: ");
+					cadRes.setValorImovel(scan.nextFloat());
+					System.out.println("Em qual zona está localizada a residência, Urbana, Suburbana ou Rural? ");
+					cadRes.setZona(scan.nextLine());
+					System.out.println("Qual o tipo de residência, Apartamento ou Casa? ");
+					cadRes.setTipo(scan.nextLine());
 					
 				}
 			
 			
 			}
 		
-			if (opcao == 1){
-				int option = 0;
-				
-				if (option == 1){
-					//cadastroFisica
-				}
-				else{
-					//cadastroJURIDICA
-				}
-			}
-			if (opcao == 2){
 			
-			}
-			if (opcao == 3){
-			
-			}
-			if (opcao == 4){
-			
-			}
-			if (opcao == 5){
-			
-			}
-			if (opcao == 6){
-			
-			}
-			if (opcao == 7){
-		
-			}
-			if (opcao == 8){
-		
-			}
 			if (opcao < 0 || opcao > 8){
 				System.out.println("Opção inválida, por favor, tente novamente!");
 			}
-			else {
-				break;
-			}
-			}
 		scan.close();
 
+		}
 	}
 
 }
