@@ -1,42 +1,33 @@
-package br.unipe.java.unidadeI;
+/**
+ *
+ * @autor aluno
+ * @date 10 de mai de 2017
+ * @time 20:56:07
+ * $(tags)
+ * 
+ */
+package br.unipe.aula.java;
 
 public class ContaCorrente {
 	
-	private int numeroConta;
-	private int numeroAgencia;
-	public float saldo;
-	private String cliente;
+	private double saldo = 0.0;
 	
-	public int getNumeroConta() {
-		return numeroConta;
+	public void depositar (double valorDeposito){
+		System.out.println("Valor Depositado: " + valorDeposito);
+		this.saldo += valorDeposito;
 	}
 	
-	public void setNumeroConta(int numeroConta) {
-		this.numeroConta = numeroConta;
+	public void sacar (double valorSaque){
+		System.out.println("Sacar " + valorSaque);
+		this.saldo -= valorSaque;
 	}
-	
-	public int getNumeroAgencia() {
-		return numeroAgencia;
-	}
-	
-	public void setNumeroAgencia(int numeroAgencia) {
-		this.numeroAgencia = numeroAgencia;
-	}
-	
-	public float getSaldo() {
+
+	public double getSaldo() {
 		return saldo;
 	}
 
-	public void setSaldo(float saldo) {
+	public void setSaldo(double saldo) {
 		this.saldo = saldo;
-	}
-
-	public String getCliente() {
-		return cliente;
-	}
-
-	public void setCliente(String cliente) {
-		this.cliente = cliente;
 	}
 
 }
