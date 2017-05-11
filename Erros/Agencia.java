@@ -10,7 +10,7 @@ package br.unipe.aula.java;
 
 public class Agencia {
 
-	public void cadastrarConta(ContaCorrente conta){
+	public void cadastrarConta(ContaCorrente conta)throws NullPointerException{
 		
 		try{
 		if(conta.getSaldo()<0)
@@ -25,8 +25,11 @@ public class Agencia {
 		}
 	}
 	
-	public void consultarConta(ContaCorrente conta){
-		System.out.println("Cliente");
-	}
-		
+	public void consultarConta(ContaCorrente conta)throws Exception{
+		if(conta.getSaldo()<0){
+			System.out.println("Esta liso ");
+		}else{
+			System.out.println("Cliente");
+		}	
+	}	
 }

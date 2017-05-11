@@ -8,10 +8,6 @@
  */
 package br.unipe.aula.java;
 
-/**
- * @author aluno
- *
- */
 public class ContaCorrente {
 	
 	private double saldo = 0.0;

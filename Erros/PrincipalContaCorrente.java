@@ -8,11 +8,7 @@
  */
 package br.unipe.aula.java;
 
-/**
- * @author aluno
- *
- */
-public class PrincipalContaCorrente {
+class PrincipalContaCorrente {
 
 	/**
 	 * @param args
@@ -24,6 +20,12 @@ public class PrincipalContaCorrente {
 		ContaCorrente conta = null;
 		
 		agencia.cadastrarConta(conta);
+		try {
+			agencia.consultarConta(conta);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		System.out.println("Opa, estou rico!");
 
 	}
 
