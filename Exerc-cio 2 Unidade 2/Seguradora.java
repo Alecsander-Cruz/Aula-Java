@@ -288,22 +288,26 @@ public class Seguradora {
 					if (opcao4 == 1){
 						System.out.println("Contratos Residenciais");
 						for (int i = 0; i<listaCadastroR.size(); i++){
-							System.out.println("Contrato numero " + (i+1) + "valor imovel " +listaCadastroR.get(i).getValorImovel());
+							System.out.println("Nome: " +listaClienteF.get(i).getNome());
+							System.out.println("Contrato numero " + (i+1) + "valor imovel " +listaCadastroR.get(i).getValorImovel() +" " +listaCadastroR.get(i).getValorSeguroRes());
 						}
 					}
 					if (opcao4 == 2){
 						System.out.println("Contratos Empresariais");
 						for (int i = 0; i<listaCadastroE.size(); i++){
-							System.out.println("Contrato numero " + (i+1) + " " +listaCadastroE.get(i).getValorImovel());
+							System.out.println("Nome: " +listaClienteJ.get(i).getNome());
+							System.out.println("Contrato numero " + (i+1) + " " +listaCadastroE.get(i).getValorImovel() +" " +listaCadastroE.get(i).getValorSeguroEmp());
 						}
 					}
 					if (opcao4 == 3) {
 						System.out.println("Lista de Clientes");
 						for (int i = 0; i<listaCadastroR.size(); i++){
-							System.out.println("ClienteF numero " + (i+1) + " " +listaCadastroR.get(i).getValorImovel());
+							System.out.println("Nome: " +listaClienteF.get(i).getNome());
+							System.out.println("ClienteF numero " + (i+1) + " " +listaCadastroR.get(i).getValorImovel() +" " +listaCadastroR.get(i).getValorSeguroRes());
 						}
 						for (int i = 0; i<listaCadastroE.size(); i++){
-							System.out.println("ClienteJ numero " + (i+1) + " " +listaCadastroE.get(i).getValorImovel());
+							System.out.println("Nome: " +listaClienteJ.get(i).getNome());
+							System.out.println("ClienteJ numero " + (i+1) + " " +listaCadastroE.get(i).getValorImovel() +" " +listaCadastroE.get(i).getValorSeguroEmp());
 						}
 					}
 					break;
