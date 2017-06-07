@@ -1,3 +1,5 @@
+package unipe.br.projeto.java.seguradora;
+
 public class CadastroRes extends PessoaFisica {
 	
 	public String endereco;
