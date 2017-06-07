@@ -320,7 +320,11 @@ public class Seguradora {
 					}
 					break;
 				}
-				
+			case 5:
+					gravar.Gravar(listaClienteF);
+					break;
+			case 6:
+					gravar.Ler();	
 			}
 			
 			if (opcao < 0 || opcao > 4){
