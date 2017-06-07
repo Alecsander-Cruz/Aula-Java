@@ -8,12 +8,8 @@ public class Seguradora {
 		System.out.println("SEGURADORA DE IMOVEIS");
 		System.out.println("1 - Cadastrar Pessoa Fisica");
 		System.out.println("2 - Cadastrar Pessoa Juridica");
-		System.out.println("3 - Listar Cliente");
-		System.out.println("4 - Listar Contrato");
-		System.out.println("5 - Cadastrar Sinistro");
-		System.out.println("6 - Listar Sinistro");
-		System.out.println("7 - Listar Contratos sem Sinistro");
-		System.out.println("8 - Persistencia com Serializacao");
+		System.out.println("3 - Listar Clientes");
+		System.out.println("4 - Listar Contratos");
 		System.out.println("0 - Sair");
 		
 		System.out.println("Entre com uma opcao: ");
@@ -310,26 +306,9 @@ public class Seguradora {
 						}
 					}
 					break;
-					
-				case 5:
-					System.out.println("Funcao ainda nao disponivel!");
-					break;
-					
-				case 6:
-					System.out.println("Funcao ainda nao disponivel!");
-					break;
-				
-				case 7:
-					System.out.println("Funcao ainda nao disponivel!");
-					break;
-				
-				case 8:
-					System.out.println("Funcao ainda nao disponivel!");
-					break;
-			}
 			
-			if (opcao < 0 || opcao > 8){
-				System.out.println("Opcao invalida, por favor, tente um numero entre 0 e 8!");
+			if (opcao < 0 || opcao > 4){
+				System.out.println("Opcao invalida, por favor, tente um numero entre 0 e 4!");
 			}
 			
 		}
