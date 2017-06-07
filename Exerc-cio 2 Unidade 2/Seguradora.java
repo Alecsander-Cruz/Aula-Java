@@ -193,7 +193,7 @@ public class Seguradora {
 					case 3:
 					//Bug ou minha incompetencia aqui nao sei pq ele n entra no While
 					int opcao3 = 0;
-					while (opcao3<1 && opcao3>3){
+					while (opcao3<1 || opcao3>3){
 						System.out.println("Listar: Pessoas Fisicas [1] ou Pessoas Juridicas [2] ou Todos[3]");
 						try{
 							opcao3 = scan.nextInt();
