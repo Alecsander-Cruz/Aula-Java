@@ -190,10 +190,48 @@ public class Seguradora {
 					System.out.println("Funcao ainda nao disponivel!");
 					break;
 				
-				case 3:
-					System.out.println("Funcao ainda nao disponivel!");
-					break;
+					case 3:
+					//Bug ou minha incompetencia aqui nao sei pq ele n entra no While
+					int opcao3 = 0;
+					while (opcao3<1 && opcao3>3){
+						System.out.println("Listar: Pessoas Fisicas [1] ou Pessoas Juridicas [2] ou Todos[3]");
+						try{
+							opcao3 = scan.nextInt();
+						scan.nextLine();
+						}catch(java.util.InputMismatchException exception){
+						}
+						if (opcao3 >= 1 && opcao3 <=3){
+							break;
+						}
+						if (opcao3 <1 && opcao3 >3){
+							System.out.println("Opcao invalida, por favor escolher entre 1 ,2 e 3.");
+							scan.next();
+						}
+					}
+					if (opcao3 == 1){
+						System.out.println("Clientes Pessoa Fisica");
+						for (int i = 0; i<listaClienteF.size(); i++){
+							System.out.println("Cliente numero " + i + " " +listaClienteF.get(i).getNome());
+							
+						}
+					}
+					if (opcao3 == 2){
+						System.out.println("Clientes Pessoa Juridica");
+						for (int i = 0; i<listaClienteJ.size(); i++){
+							System.out.println("Cliente numero " + i + " " +listaClienteJ.get(i).getNome());
+						}
+					}
+					else {
+						System.out.println("Lista de Clientes");
+						for (int i = 0; i<listaClienteF.size(); i++){
+							System.out.println("ClienteF numero " + i + " " +listaClienteF.get(i).getNome());
+						}
+						for (int i = 0; i<listaClienteJ.size(); i++){
+							System.out.println("ClienteJ numero " + i + " " +listaClienteJ.get(i).getNome());
+						}
+					}
 					
+					break;
 				case 4:
 					System.out.println("Funcao ainda nao disponivel!");
 					break;
