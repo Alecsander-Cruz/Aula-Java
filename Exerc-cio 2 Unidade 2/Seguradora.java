@@ -30,6 +30,7 @@ public class Seguradora {
         ArrayList<Cliente>  listaClienteF  = new ArrayList<Cliente>();
         ArrayList<CadastroRes>  listaCadastroR  = new ArrayList<CadastroRes>();
         ArrayList<CadastroEmp>  listaCadastroE  = new ArrayList<CadastroEmp>();
+	Grava gravar = new Grava();
 
 
 		Scanner scan = new Scanner(System.in);
@@ -306,8 +307,11 @@ public class Seguradora {
 						}
 					}
 					break;
+				case 5:
+					gravar.Gravar(listaClienteF);
+					break;
 			
-			if (opcao < 0 || opcao > 4){
+			if (opcao < 0 || opcao > 5){
 				System.out.println("Opcao invalida, por favor, tente um numero entre 0 e 4!");
 			}
 			
