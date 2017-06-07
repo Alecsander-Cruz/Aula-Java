@@ -1,3 +1,5 @@
+package unipe.br.projeto.java.seguradora;
+
 public class PessoaFisica extends Cliente{
 
 	public String cpf;
