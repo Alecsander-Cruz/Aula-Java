@@ -92,7 +92,33 @@ public class Seguradora {
 						cadRes.setTipo(cadRes.tipo);
 						System.out.println("Tipo " + cadRes.tipo);
 					}
+				case 2:
+					System.out.println("Funcao ainda nao disponivel!");
+					break;
+				
+				case 3:
+					System.out.println("Funcao ainda nao disponivel!");
+					break;
 					
+				case 4:
+					System.out.println("Funcao ainda nao disponivel!");
+					break;
+					
+				case 5:
+					System.out.println("Funcao ainda nao disponivel!");
+					break;
+					
+				case 6:
+					System.out.println("Funcao ainda nao disponivel!");
+					break;
+				
+				case 7:
+					System.out.println("Funcao ainda nao disponivel!");
+					break;
+				
+				case 8:
+					System.out.println("Funcao ainda nao disponivel!");
+					break;	
 			}
 			
 			if (opcao < 0 || opcao > 8){
