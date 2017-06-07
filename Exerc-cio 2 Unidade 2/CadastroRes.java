@@ -1,9 +1,10 @@
-public class CadastroRes extends Cliente {
+public class CadastroRes {
 	
 	public String endereco;
 	public float valorImovel;
-	public String zona;
-	public String tipo;
+	public int zona; //1 - zona Urbana; 2 - zona Suburbana; 3 - zona Rural
+	public int tipo; //1 - Apartamento; 2 - Casa
+	public float valorSeguroRes;
 	
 	
 	public String getEndereco() {
@@ -18,17 +19,56 @@ public class CadastroRes extends Cliente {
 	public void setValorImovel(float valorImovel) {
 		this.valorImovel = valorImovel;
 	}
-	public String getZona() {
+	public int getZona() {
 		return zona;
 	}
-	public void setZona(String zona) {
+	public void setZona(int zona) {
 		this.zona = zona;
 	}
-	public String getTipo() {
+	public int getTipo() {
 		return tipo;
 	}
-	public void setTipo(String tipo) {
+	public void setTipo(int tipo) {
 		this.tipo = tipo;
 	}
-
+	public float getValorSeguroRes() {
+		return valorSeguroRes;
+	}
+	public void setValorSeguroRes(float valorSeguroRes) {
+		this.valorSeguroRes = valorSeguroRes;
+	}
+	
+	public float calcularSeguroRes(float valorImovel, int zona, int tipo){
+		
+		float valorSeguro = 0;
+		
+		if(zona == 1){
+			if(tipo == 2){
+				valorSeguro = (valorImovel*2/100) + (valorImovel*1/100) + (valorImovel*5/1000);
+			}else{
+				valorSeguro = (valorImovel*2/100) + (valorImovel*1/100);
+			}
+		}
+		
+		if(zona == 2){
+			if(tipo == 2){
+				valorSeguro = (valorImovel*2/100) + (valorImovel*5/1000) + (valorImovel*5/1000);
+			}else{
+				valorSeguro = (valorImovel*2/100) + (valorImovel*5/1000);
+			}
+		}
+		
+		if(zona == 3){
+			if(tipo == 2){
+				valorSeguro = (valorImovel*2/100) + (valorImovel*5/1000);
+			}else{
+				valorSeguro = (valorImovel*2/100);
+			}
+		}
+		
+		
+		return valorSeguro;
+		
+	}
+	
 }
