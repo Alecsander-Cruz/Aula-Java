@@ -45,6 +45,7 @@ public class Seguradora {
 					while (opcao2!=1 || opcao2!=2){
 						System.out.println("Pessoa Fisica [1] ou Pessoa Juridica [2]");
 						opcao2 = scan.nextInt();
+						scan.nextLine();
 						if (opcao2 == 1 || opcao2 ==2){
 							break;
 						}
@@ -77,6 +78,7 @@ public class Seguradora {
 						
 						System.out.println("Digite o valor do Imovel: ");
 						cadRes.valorImovel = scan.nextFloat();
+						scan.nextLine();
 						cadRes.setValorImovel(cadRes.valorImovel);
 						System.out.println("Valor " + cadRes.valorImovel);
 						
