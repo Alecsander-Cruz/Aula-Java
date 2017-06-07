@@ -1,4 +1,4 @@
-public class CadastroRes {
+public class CadastroRes extends PessoaFisica {
 	
 	public String endereco;
 	public float valorImovel;
