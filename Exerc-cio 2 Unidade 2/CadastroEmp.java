@@ -1,4 +1,4 @@
-public class CadastroEmp {
+public class CadastroEmp extends PessoaJuridica {
 	
 	public float valorImovel;
 	public int funcionarios;
