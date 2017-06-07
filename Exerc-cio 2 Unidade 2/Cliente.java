@@ -1,3 +1,5 @@
+package unipe.br.projeto.java.seguradora;
+
 public class Cliente {
 	
 	public String nome;
