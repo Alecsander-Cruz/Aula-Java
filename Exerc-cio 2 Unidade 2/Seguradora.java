@@ -91,6 +91,7 @@ public class Seguradora {
 						cadRes.tipo = scan.nextLine();
 						cadRes.setTipo(cadRes.tipo);
 						System.out.println("Tipo " + cadRes.tipo);
+						break;
 					}
 				case 2:
 					System.out.println("Funcao ainda nao disponivel!");
