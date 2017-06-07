@@ -190,8 +190,7 @@ public class Seguradora {
 					System.out.println("Funcao ainda nao disponivel!");
 					break;
 				
-					case 3:
-					//Bug ou minha incompetencia aqui nao sei pq ele n entra no While
+				case 3:
 					int opcao3 = 0;
 					while (opcao3<1 || opcao3>3){
 						System.out.println("Listar: Pessoas Fisicas [1] ou Pessoas Juridicas [2] ou Todos[3]");
@@ -221,7 +220,7 @@ public class Seguradora {
 							System.out.println("Cliente numero " + i + " " +listaClienteJ.get(i).getNome());
 						}
 					}
-					else {
+					if (opcao3 == 3) {
 						System.out.println("Lista de Clientes");
 						for (int i = 0; i<listaClienteF.size(); i++){
 							System.out.println("ClienteF numero " + i + " " +listaClienteF.get(i).getNome());
@@ -233,9 +232,45 @@ public class Seguradora {
 					
 					break;
 				case 4:
-					System.out.println("Funcao ainda nao disponivel!");
+					int opcao4 = 0;
+					while (opcao4<1 || opcao4>3){
+						System.out.println("Listar: Contratos Residenciais [1] ou Contratos Empresariais [2] ou Todos[3]");
+						try{
+							opcao3 = scan.nextInt();
+						scan.nextLine();
+						}catch(java.util.InputMismatchException exception){
+						}
+						if (opcao4 >= 1 && opcao4 <=3){
+							break;
+						}
+						if (opcao4 <1 && opcao4 >3){
+							System.out.println("Opcao invalida, por favor escolher entre 1 ,2 e 3.");
+							scan.next();
+						}
+					}
+					if (opcao4 == 1){
+						System.out.println("Contratos Residenciais");
+						for (int i = 0; i<listaCadR.size(); i++){
+							System.out.println("Contrato numero " + i + "valor imovel " +listaCadR.get(i).getValorImovel());
+							
+						}
+					}
+					if (opcao4 == 2){
+						System.out.println("Contratos Empresariais");
+						for (int i = 0; i<listaCadE.size(); i++){
+							System.out.println("Contrato numero " + i + " " +listaCadE.get(i).getValorImovel());
+						}
+					}
+					if (opcao4 == 3) {
+						System.out.println("Lista de Clientes");
+						for (int i = 0; i<listaCadR.size(); i++){
+							System.out.println("ClienteF numero " + i + " " +listaCadR.get(i).getValorImovel());
+						}
+						for (int i = 0; i<listaCadE.size(); i++){
+							System.out.println("ClienteJ numero " + i + " " +listaCadE.get(i).getValorImovel());
+						}
+					}
 					break;
-					
 				case 5:
 					System.out.println("Funcao ainda nao disponivel!");
 					break;
