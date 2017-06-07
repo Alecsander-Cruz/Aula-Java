@@ -1,4 +1,5 @@
 import java.util.*;
+import java.util.ArrayList;
 
 public class Seguradora {
 	
@@ -30,7 +31,12 @@ public class Seguradora {
 	}
 
 	public static void main(String[] args) {
-		
+		ArrayList<Cliente>  listaClienteJ  = new ArrayList<Cliente>();
+        ArrayList<Cliente>  listaClienteF  = new ArrayList<Cliente>();
+        ArrayList<CadastroRes>  listaCadastroR  = new ArrayList<CadastroRes>();
+        ArrayList<CadastroEmp>  listaCadastroE  = new ArrayList<CadastroEmp>();
+
+
 		Scanner scan = new Scanner(System.in);
 		
 		int opcao = 10;
@@ -107,6 +113,9 @@ public class Seguradora {
 						cadRes.tipo = scan.nextLine();
 						cadRes.setTipo(cadRes.tipo);
 						System.out.println("Tipo " + cadRes.tipo);
+						listaClienteF.add(cliente);
+						listaCadastroR.add(cadRes);
+						
 						break;
 					}
 					
@@ -172,6 +181,8 @@ public class Seguradora {
 						cadEmp.ramo = scan.nextLine();
 						cadEmp.setRamo(cadEmp.ramo);
 						System.out.println("Tipo " + cadEmp.ramo);
+						listaClienteJ.add(cliente);
+						listaCadEmp.add(cadEmp);
 						break;
 					}
 				
