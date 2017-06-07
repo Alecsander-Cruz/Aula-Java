@@ -5,12 +5,12 @@ import java.util.*;
 public class Seguradora {
 	
 	public static void imprimeMenu(){
-		System.out.println("SEGURADORA DE IMOVEIS");
+		System.out.println("\n--- SEGURADORA DE IMOVEIS - HAC ---\n");
 		System.out.println("1 - Cadastrar Pessoa Fisica");
 		System.out.println("2 - Cadastrar Pessoa Juridica");
-		System.out.println("3 - Listar Clientes");
-		System.out.println("4 - Listar Contratos");
-		System.out.println("0 - Sair");
+		System.out.println("3 - Listar Cliente");
+		System.out.println("4 - Listar Contrato");
+		System.out.println("0 - Sair\n");
 		
 		System.out.println("Entre com uma opcao: ");
 	}
@@ -30,7 +30,6 @@ public class Seguradora {
         ArrayList<Cliente>  listaClienteF  = new ArrayList<Cliente>();
         ArrayList<CadastroRes>  listaCadastroR  = new ArrayList<CadastroRes>();
         ArrayList<CadastroEmp>  listaCadastroE  = new ArrayList<CadastroEmp>();
-	Grava gravar = new Grava();
 
 
 		Scanner scan = new Scanner(System.in);
@@ -48,7 +47,7 @@ public class Seguradora {
 			}
 			switch(opcao){
 				
-				case 1:
+				case 1:{
 					Cliente clienteF = new Cliente();
 					CadastroRes cadRes = new CadastroRes();
 					cadRes.valorImovel = -1;
@@ -130,8 +129,9 @@ public class Seguradora {
 					listaCadastroR.add(cadRes);
 				
 					break;
+				}
 				
-				case 2:
+				case 2:{
 
 					Cliente clienteJ = new Cliente();
 					CadastroEmp cadEmp = new CadastroEmp();
@@ -225,8 +225,9 @@ public class Seguradora {
 					listaClienteJ.add(clienteJ);
 					listaCadastroE.add(cadEmp);
 					break;
+				}
 					
-				case 3:
+				case 3:{
 					
 					int opcao3 = 0;
 					while (opcao3<1 || opcao3>3){
@@ -244,32 +245,33 @@ public class Seguradora {
 						}
 					}
 					if (opcao3 == 1){
-						System.out.println("Clientes Pessoa Fisica");
+						System.out.println("\n--- Clientes Pessoa Fisica ---\n");
 						for (int i = 0; i<listaClienteF.size(); i++){
-							System.out.println("#" + (i+1) + " " +listaClienteF.get(i).getNome());
+							System.out.println("Nome do cliente " + (i+1) + ": " +listaClienteF.get(i).getNome()+ "\n");
 							
 						}
 					}
 					if (opcao3 == 2){
-						System.out.println("Clientes Pessoa Juridica");
+						System.out.println("\n--- Clientes Pessoa Juridica ---\n");
 						for (int i = 0; i<listaClienteJ.size(); i++){
-							System.out.println("#" + (i+1) + " " +listaClienteJ.get(i).getNome());
+							System.out.println("Nome do cliente " + (i+1) + ": " +listaClienteJ.get(i).getNome()+ "\n");
 						}
 					}
 					if (opcao3 == 3){
-						System.out.println("Lista de Clientes");
-						System.out.println("Clientes Pessoa Fisica");
+						System.out.println("\n--- Lista de Clientes ---\n");
+						System.out.println("\n--- Clientes Pessoa Fisica ---\n");
 						for (int i = 0; i<listaClienteF.size(); i++){
-							System.out.println("#" + (i+1) + " " +listaClienteF.get(i).getNome());
+							System.out.println("Nome do cliente " + (i+1) + ": " +listaClienteF.get(i).getNome()+ "\n");
 						}
-						System.out.println("Clientes Pessoa Juridica");
+						System.out.println("\n--- Clientes Pessoa Juridica ---\n");
 						for (int i = 0; i<listaClienteJ.size(); i++){
-							System.out.println("#" + (i+1) + " " +listaClienteJ.get(i).getNome());
+							System.out.println("Nome do cliente " + (i+1) + ": " +listaClienteJ.get(i).getNome() + "\n");
 						}
 					}
 					
 					break;
-				case 4:
+				}
+				case 4:{
 					int opcao4 = 0;
 					while (opcao4<1 || opcao4>3){
 						System.out.println("Listar: Contratos Residenciais [1] ou Contratos Empresariais [2] ou Todos[3]");
@@ -286,36 +288,42 @@ public class Seguradora {
 						}
 					}
 					if (opcao4 == 1){
-						System.out.println("Contratos Residenciais");
+						System.out.println("\n--- Contratos Residenciais ---\n");
 						for (int i = 0; i<listaCadastroR.size(); i++){
-							System.out.println("Nome: " +listaClienteF.get(i).getNome());
-							System.out.println("Contrato numero " + (i+1) + "valor imovel " +listaCadastroR.get(i).getValorImovel() +" " +listaCadastroR.get(i).getValorSeguroRes());
+							System.out.println("# Contrato numero " + (i+1) + " #\n");
+							System.out.println("Nome do Cliente: " +listaClienteF.get(i).getNome());
+							System.out.println("Valor do Imovel R$" +listaCadastroR.get(i).getValorImovel() + "\n" + "Valor do Seguro R$" + listaCadastroR.get(i).getValorSeguroRes()+ "\n");
 						}
 					}
 					if (opcao4 == 2){
-						System.out.println("Contratos Empresariais");
+						System.out.println("\n--- Contratos Empresariais ---\n");
 						for (int i = 0; i<listaCadastroE.size(); i++){
-							System.out.println("Nome: " +listaClienteJ.get(i).getNome());
-							System.out.println("Contrato numero " + (i+1) + " " +listaCadastroE.get(i).getValorImovel() +" " +listaCadastroE.get(i).getValorSeguroEmp());
+							System.out.println("# Contrato numero " + (i+1) + " #\n");
+							System.out.println("Nome do Cliente: " +listaClienteJ.get(i).getNome());
+							System.out.println("Valor do Imovel R$" +listaCadastroE.get(i).getValorImovel() + "\n" + "Valor do Seguro R$" +listaCadastroE.get(i).getValorSeguroEmp()+ "\n");
 						}
 					}
 					if (opcao4 == 3) {
-						System.out.println("Lista de Clientes");
+						System.out.println("\n--- Lista de Contratos ---\n");
+						System.out.println("\n--- Pessoa Fisica ---\n");
 						for (int i = 0; i<listaCadastroR.size(); i++){
-							System.out.println("Nome: " +listaClienteF.get(i).getNome());
-							System.out.println("ClienteF numero " + (i+1) + " " +listaCadastroR.get(i).getValorImovel() +" " +listaCadastroR.get(i).getValorSeguroRes());
+							System.out.println("# Contrato numero " + (i+1)+ " #\n");
+							System.out.println("Nome do Cliente: " +listaClienteF.get(i).getNome());
+							System.out.println("Valor do Imovel R$" +listaCadastroR.get(i).getValorImovel() + "\n" + "Valor do Seguro R$" + listaCadastroR.get(i).getValorSeguroRes()+ "\n");
 						}
+						System.out.println("\n--- Pessoa Juridica ---\n");
 						for (int i = 0; i<listaCadastroE.size(); i++){
-							System.out.println("Nome: " +listaClienteJ.get(i).getNome());
-							System.out.println("ClienteJ numero " + (i+1) + " " +listaCadastroE.get(i).getValorImovel() +" " +listaCadastroE.get(i).getValorSeguroEmp());
+							System.out.println("# Contrato numero " + (i+1)+ " #\n");
+							System.out.println("Nome do Cliente: " +listaClienteJ.get(i).getNome());
+							System.out.println("Valor do Imovel R$" +listaCadastroE.get(i).getValorImovel() +"\n" + "Valor do Seguro R$" +listaCadastroE.get(i).getValorSeguroEmp()+ "\n");
 						}
 					}
 					break;
-				case 5:
-					gravar.Gravar(listaClienteF);
-					break;
+				}
+				
+			}
 			
-			if (opcao < 0 || opcao > 5){
+			if (opcao < 0 || opcao > 4){
 				System.out.println("Opcao invalida, por favor, tente um numero entre 0 e 4!");
 			}
 			
