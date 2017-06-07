@@ -325,6 +325,7 @@ public class Seguradora {
 					break;
 			case 6:
 					gravar.Ler();	
+					break;
 			}
 			
 			if (opcao < 0 || opcao > 4){
