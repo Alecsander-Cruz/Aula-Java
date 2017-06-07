@@ -3,7 +3,7 @@ import java.util.*;
 public class Seguradora {
 	
 	public int tipoCliente;
-	public String nome;
+	public static String nome;
 	
 	public static void imprimeMenu(){
 		System.out.println("SEGURADORA DE IMOVEIS");
@@ -34,18 +34,27 @@ public class Seguradora {
 		Scanner scan = new Scanner(System.in);
 		
 		int opcao = 10;
+		
 		while (opcao != 0){
 			imprimeMenu();
+			try{
 			opcao = scan.nextInt();
-			
+			scan.nextLine();
+			}catch(java.util.InputMismatchException e){
+				scan.nextLine();
+				System.out.println("Apenas valores numericos!");
+			}
 			switch(opcao){
 				
 				case 1:
-					int opcao2 = 10;
+					int opcao2 = 0;
 					while (opcao2!=1 || opcao2!=2){
 						System.out.println("Pessoa Fisica [1] ou Pessoa Juridica [2]");
-						opcao2 = scan.nextInt();
+						try{
+							opcao2 = scan.nextInt();
 						scan.nextLine();
+						}catch(java.util.InputMismatchException exception){
+						}
 						if (opcao2 == 1 || opcao2 ==2){
 							break;
 						}
@@ -60,10 +69,10 @@ public class Seguradora {
 						CadastroRes cadRes = new CadastroRes();
 						
 						cliente.setTipoPessoa(opcao2);
-						System.out.println(cliente.tipoPessoa);
+						System.out.println("Tipo de pessoa " + cliente.tipoPessoa);
 						System.out.println("Digite o nome: ");
-						cliente.nome = scan.nextLine();
-						cliente.setNome(cliente.nome);
+						nome = scan.nextLine();
+						cliente.setNome(nome);
 						System.out.println("Nome " + cliente.nome);
 						
 						System.out.println("Digite o CPF: ");
@@ -71,14 +80,21 @@ public class Seguradora {
 						pFisica.setCpf(pFisica.cpf);
 						System.out.println("CPF " + pFisica.cpf);
 						
-						System.out.println("Digite o endereço da residencia: ");
+						System.out.println("Digite o endereco da residencia: ");
 						cadRes.endereco = scan.nextLine();
 						cadRes.setEndereco(cadRes.endereco);
 						System.out.println("Endereco " + cadRes.endereco);
 						
 						System.out.println("Digite o valor do Imovel: ");
-						cadRes.valorImovel = scan.nextFloat();
-						scan.nextLine();
+						while(cadRes.valorImovel == 0.0){
+							try{
+								cadRes.valorImovel = scan.nextFloat();
+								scan.nextLine();
+							}catch (java.util.InputMismatchException e){
+								scan.nextLine();
+								System.out.println("Apenas valores numericos!");
+							}
+						}
 						cadRes.setValorImovel(cadRes.valorImovel);
 						System.out.println("Valor " + cadRes.valorImovel);
 						
@@ -93,6 +109,72 @@ public class Seguradora {
 						System.out.println("Tipo " + cadRes.tipo);
 						break;
 					}
+					
+					if(opcao2 == 2){
+						Cliente cliente = new Cliente();
+						PessoaJuridica pJuridica = new PessoaJuridica();
+						CadastroEmp cadEmp = new CadastroEmp();
+						
+						cliente.setTipoPessoa(opcao2);
+						System.out.println("Tipo de pessoa " + cliente.tipoPessoa);
+						System.out.println("Digite o nome: ");
+						nome = scan.nextLine();
+						cliente.setNome(nome);
+						System.out.println("Nome " + cliente.nome);
+						
+						System.out.println("Digite o CNPJ: ");
+						pJuridica.cnpj = scan.nextLine();
+						pJuridica.setCnpj(pJuridica.cnpj);
+						System.out.println("CPF " + pJuridica.cnpj);
+						
+						System.out.println("Digite o valor do Imovel: ");
+						while(cadEmp.valorImovel == 0.0){
+							try{
+								cadEmp.valorImovel = scan.nextFloat();
+								scan.nextLine();
+							}catch (java.util.InputMismatchException e){
+								scan.nextLine();
+								System.out.println("Apenas valores numericos!");
+							}
+						}
+						cadEmp.setValorImovel(cadEmp.valorImovel);
+						System.out.println("Valor " + cadEmp.valorImovel);
+						
+						System.out.println("Digite o numero de funcionarios: ");
+						while(cadEmp.funcionarios == 0){
+							try{
+								cadEmp.funcionarios = scan.nextInt();
+								scan.hasNextLine();
+							}catch(java.util.InputMismatchException e){
+								scan.nextLine();
+								System.out.println("Apenas valores numericos!");
+							}
+						}
+						cadEmp.setFuncionarios(cadEmp.funcionarios);
+						System.out.println("Funcionarios " + cadEmp.funcionarios);
+						
+						
+						
+						System.out.println("Digite o numero de visitas diarias: ");
+						while(cadEmp.visitasDiarias == 0){
+							try{
+								cadEmp.visitasDiarias = scan.nextInt();
+								scan.nextLine();
+							}catch (java.util.InputMismatchException e){
+								scan.nextLine();
+								System.out.println("Apenas valores numericos!");
+							}
+						}
+						cadEmp.setVisitasDiarias(cadEmp.visitasDiarias);
+						System.out.println("Visitas Diarias " + cadEmp.visitasDiarias);
+						
+						System.out.println("Qual o ramo, Comercio, Industria ou Agropecuaria? ");
+						cadEmp.ramo = scan.nextLine();
+						cadEmp.setRamo(cadEmp.ramo);
+						System.out.println("Tipo " + cadEmp.ramo);
+						break;
+					}
+				
 				case 2:
 					System.out.println("Funcao ainda nao disponivel!");
 					break;
@@ -119,7 +201,7 @@ public class Seguradora {
 				
 				case 8:
 					System.out.println("Funcao ainda nao disponivel!");
-					break;	
+					break;
 			}
 			
 			if (opcao < 0 || opcao > 8){
