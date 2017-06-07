@@ -1,10 +1,6 @@
 import java.util.*;
-import java.util.ArrayList;
 
 public class Seguradora {
-	
-	public int tipoCliente;
-	public static String nome;
 	
 	public static void imprimeMenu(){
 		System.out.println("SEGURADORA DE IMOVEIS");
@@ -31,6 +27,7 @@ public class Seguradora {
 	}
 
 	public static void main(String[] args) {
+		
 		ArrayList<Cliente>  listaClienteJ  = new ArrayList<Cliente>();
         ArrayList<Cliente>  listaClienteF  = new ArrayList<Cliente>();
         ArrayList<CadastroRes>  listaCadastroR  = new ArrayList<CadastroRes>();
@@ -58,38 +55,35 @@ public class Seguradora {
 						System.out.println("Pessoa Fisica [1] ou Pessoa Juridica [2]");
 						try{
 							opcao2 = scan.nextInt();
-						scan.nextLine();
+							scan.nextLine();
 						}catch(java.util.InputMismatchException exception){
+							scan.nextLine();
 						}
 						if (opcao2 == 1 || opcao2 ==2){
 							break;
-						}
-						if (opcao2 !=1 && opcao2 !=2){
+						}else{
 							System.out.println("Opcao invalida, por favor escolher entre 1 e 2.");
-							scan.next();
+							
 						}
 					}
 					if (opcao2 ==1){
 						Cliente cliente = new Cliente();
-						PessoaFisica pFisica = new PessoaFisica();
 						CadastroRes cadRes = new CadastroRes();
 						
-						cliente.setTipoPessoa(opcao2);
-						System.out.println("Tipo de pessoa " + cliente.tipoPessoa);
 						System.out.println("Digite o nome: ");
-						nome = scan.nextLine();
-						cliente.setNome(nome);
-						System.out.println("Nome " + cliente.nome);
+						cliente.nome = scan.nextLine();
+						cliente.setNome(cliente.nome);
+						System.out.println("Nome " + cliente.getNome());
 						
 						System.out.println("Digite o CPF: ");
-						pFisica.cpf = scan.nextLine();
-						pFisica.setCpf(pFisica.cpf);
-						System.out.println("CPF " + pFisica.cpf);
+						cadRes.cpf = scan.nextLine();
+						cadRes.setCpf(cadRes.cpf);
+						System.out.println("CPF " + cadRes.getCpf());
 						
 						System.out.println("Digite o endereco da residencia: ");
 						cadRes.endereco = scan.nextLine();
 						cadRes.setEndereco(cadRes.endereco);
-						System.out.println("Endereco " + cadRes.endereco);
+						System.out.println("Endereco " + cadRes.getEndereco());
 						
 						System.out.println("Digite o valor do Imovel: ");
 						while(cadRes.valorImovel == 0.0){
@@ -102,17 +96,50 @@ public class Seguradora {
 							}
 						}
 						cadRes.setValorImovel(cadRes.valorImovel);
-						System.out.println("Valor " + cadRes.valorImovel);
+						System.out.println("Valor " + cadRes.getValorImovel());
 						
-						System.out.println("Em qual zona esta localizada a residencia, Urbana, Suburbana ou Rural? ");
-						cadRes.zona = scan.nextLine();
+						System.out.println("Digite o numero correspondente a zona na qual esta localizada a residencia, Urbana[1], Suburbana[2] ou Rural[3]? ");
+						while(cadRes.zona < 1 || cadRes.zona >3 ){
+							try{
+								cadRes.zona = scan.nextInt();
+								scan.nextLine();
+							}catch(java.util.InputMismatchException exception){
+								scan.nextLine();
+							}
+							if ((cadRes.zona == 1) || (cadRes.zona ==2) || (cadRes.zona ==3)){
+								break;
+							}
+							if ((cadRes.zona !=1) && (cadRes.zona !=2) && (cadRes.zona !=3)){
+								System.out.println("Opcao invalida, por favor escolher entre 1, 2 e 3.");
+								
+							}
+						}
 						cadRes.setZona(cadRes.zona);
-						System.out.println("Zona " + cadRes.zona);
+						System.out.println("Zona " + cadRes.getZona());
 						
-						System.out.println("Qual o tipo de residencia, Apartamento ou Casa? ");
-						cadRes.tipo = scan.nextLine();
+						System.out.println("Digite o numero correspondente ao tipo de residencia, Apartamento[1]ou Casa[2]? ");
+						while(cadRes.tipo < 1 || cadRes.tipo >2 ){
+							try{
+								cadRes.tipo = scan.nextInt();
+								scan.nextLine();
+							}catch(java.util.InputMismatchException exception){
+								scan.nextLine();
+							}
+							if ((cadRes.tipo == 1) || (cadRes.tipo ==2)){
+								break;
+							}
+							if ((cadRes.tipo !=1) && (cadRes.tipo !=2)){
+								System.out.println("Opcao invalida, por favor escolher entre 1 e 2.");
+								
+							}
+						}
 						cadRes.setTipo(cadRes.tipo);
-						System.out.println("Tipo " + cadRes.tipo);
+						System.out.println("Tipo " + cadRes.getTipo());
+						
+						cadRes.valorSeguroRes = cadRes.calcularSeguroRes(cadRes.getValorImovel(), cadRes.getZona(),cadRes.getTipo());
+						cadRes.setValorSeguroRes(cadRes.valorSeguroRes);
+						System.out.println("Valor do Seguro R$" + cadRes.getValorSeguroRes());
+						
 						listaClienteF.add(cliente);
 						listaCadastroR.add(cadRes);
 						
@@ -121,20 +148,19 @@ public class Seguradora {
 					
 					if(opcao2 == 2){
 						Cliente cliente = new Cliente();
-						PessoaJuridica pJuridica = new PessoaJuridica();
 						CadastroEmp cadEmp = new CadastroEmp();
+						cadEmp.funcionarios = -1;
+						cadEmp.visitasDiarias = -1;
 						
-						cliente.setTipoPessoa(opcao2);
-						System.out.println("Tipo de pessoa " + cliente.tipoPessoa);
 						System.out.println("Digite o nome: ");
-						nome = scan.nextLine();
-						cliente.setNome(nome);
-						System.out.println("Nome " + cliente.nome);
+						cliente.nome = scan.nextLine();
+						cliente.setNome(cliente.nome);
+						System.out.println("Nome " + cliente.getNome());
 						
 						System.out.println("Digite o CNPJ: ");
-						pJuridica.cnpj = scan.nextLine();
-						pJuridica.setCnpj(pJuridica.cnpj);
-						System.out.println("CPF " + pJuridica.cnpj);
+						cadEmp.cnpj = scan.nextLine();
+						cadEmp.setCnpj(cadEmp.cnpj);
+						System.out.println("CNPJ " + cadEmp.getCnpj());
 						
 						System.out.println("Digite o valor do Imovel: ");
 						while(cadEmp.valorImovel == 0.0){
@@ -147,42 +173,67 @@ public class Seguradora {
 							}
 						}
 						cadEmp.setValorImovel(cadEmp.valorImovel);
-						System.out.println("Valor " + cadEmp.valorImovel);
+						System.out.println("Valor " + cadEmp.getValorImovel());
 						
-						System.out.println("Digite o numero de funcionarios: ");
-						while(cadEmp.funcionarios == 0){
+						System.out.println("Digite o numero de funcionarios (numero inteiro): ");
+						while(cadEmp.funcionarios < 0 ){
 							try{
 								cadEmp.funcionarios = scan.nextInt();
 								scan.hasNextLine();
+								if (cadEmp.funcionarios < 0){
+									System.out.println("Apenas valores positivos!");
+								}
 							}catch(java.util.InputMismatchException e){
 								scan.nextLine();
 								System.out.println("Apenas valores numericos!");
 							}
 						}
 						cadEmp.setFuncionarios(cadEmp.funcionarios);
-						System.out.println("Funcionarios " + cadEmp.funcionarios);
+						System.out.println("Funcionarios " + cadEmp.getFuncionarios());
 						
 						
 						
-						System.out.println("Digite o numero de visitas diarias: ");
-						while(cadEmp.visitasDiarias == 0){
+						System.out.println("Digite o numero de visitas diarias (numero inteiro): ");
+						while(cadEmp.visitasDiarias < 0){
 							try{
 								cadEmp.visitasDiarias = scan.nextInt();
 								scan.nextLine();
+								if (cadEmp.visitasDiarias < 0){
+									System.out.println("Apenas valores positivos!");
+								}
 							}catch (java.util.InputMismatchException e){
 								scan.nextLine();
 								System.out.println("Apenas valores numericos!");
 							}
 						}
 						cadEmp.setVisitasDiarias(cadEmp.visitasDiarias);
-						System.out.println("Visitas Diarias " + cadEmp.visitasDiarias);
+						System.out.println("Visitas Diarias " + cadEmp.getVisitasDiarias());
 						
-						System.out.println("Qual o ramo, Comercio, Industria ou Agropecuaria? ");
-						cadEmp.ramo = scan.nextLine();
+						System.out.println("Digite o numero correspondente ao ramo, Comercio[1], Industria[2] ou Agropecuaria[3]? ");
+						while(cadEmp.ramo < 1 || cadEmp.ramo >3 ){
+							try{
+								cadEmp.ramo = scan.nextInt();
+								scan.nextLine();
+							}catch(java.util.InputMismatchException exception){
+								scan.nextLine();
+							}
+							if ((cadEmp.ramo == 1) || (cadEmp.ramo == 2) || (cadEmp.ramo == 3)){
+								break;
+							}
+							if ((cadEmp.ramo !=1) && (cadEmp.ramo !=2) && (cadEmp.ramo !=3)){
+								System.out.println("Opcao invalida, por favor escolher entre 1, 2 e 3.");
+								
+							}
+						}
 						cadEmp.setRamo(cadEmp.ramo);
-						System.out.println("Tipo " + cadEmp.ramo);
+						System.out.println("Ramo " + cadEmp.getRamo());
+						
+						cadEmp.valorSeguroEmp = cadEmp.calcularSeguroEmp(cadEmp.getValorImovel(), cadEmp.getFuncionarios(), cadEmp.getVisitasDiarias(), cadEmp.getRamo());
+						cadEmp.setValorSeguroEmp(cadEmp.valorSeguroEmp);
+						System.out.println("Valor do Seguro R$" + cadEmp.getValorSeguroEmp());
+						
 						listaClienteJ.add(cliente);
-						listaCadEmp.add(cadEmp);
+						listaCadastroE.add(cadEmp);
 						break;
 					}
 				
@@ -190,43 +241,46 @@ public class Seguradora {
 					System.out.println("Funcao ainda nao disponivel!");
 					break;
 				
+					
 				case 3:
+					
 					int opcao3 = 0;
 					while (opcao3<1 || opcao3>3){
 						System.out.println("Listar: Pessoas Fisicas [1] ou Pessoas Juridicas [2] ou Todos[3]");
 						try{
 							opcao3 = scan.nextInt();
-						scan.nextLine();
+							scan.nextLine();
 						}catch(java.util.InputMismatchException exception){
+							scan.nextLine();
 						}
 						if (opcao3 >= 1 && opcao3 <=3){
 							break;
-						}
-						if (opcao3 <1 && opcao3 >3){
+						}else{
 							System.out.println("Opcao invalida, por favor escolher entre 1 ,2 e 3.");
-							scan.next();
 						}
 					}
 					if (opcao3 == 1){
 						System.out.println("Clientes Pessoa Fisica");
 						for (int i = 0; i<listaClienteF.size(); i++){
-							System.out.println("Cliente numero " + i + " " +listaClienteF.get(i).getNome());
+							System.out.println("#" + (i+1) + " " +listaClienteF.get(i).getNome());
 							
 						}
 					}
 					if (opcao3 == 2){
 						System.out.println("Clientes Pessoa Juridica");
 						for (int i = 0; i<listaClienteJ.size(); i++){
-							System.out.println("Cliente numero " + i + " " +listaClienteJ.get(i).getNome());
+							System.out.println("#" + (i+1) + " " +listaClienteJ.get(i).getNome());
 						}
 					}
-					if (opcao3 == 3) {
+					if (opcao3 == 3){
 						System.out.println("Lista de Clientes");
+						System.out.println("Clientes Pessoa Fisica");
 						for (int i = 0; i<listaClienteF.size(); i++){
-							System.out.println("ClienteF numero " + i + " " +listaClienteF.get(i).getNome());
+							System.out.println("#" + (i+1) + " " +listaClienteF.get(i).getNome());
 						}
+						System.out.println("Clientes Pessoa Juridica");
 						for (int i = 0; i<listaClienteJ.size(); i++){
-							System.out.println("ClienteJ numero " + i + " " +listaClienteJ.get(i).getNome());
+							System.out.println("#" + (i+1) + " " +listaClienteJ.get(i).getNome());
 						}
 					}
 					
@@ -236,41 +290,40 @@ public class Seguradora {
 					while (opcao4<1 || opcao4>3){
 						System.out.println("Listar: Contratos Residenciais [1] ou Contratos Empresariais [2] ou Todos[3]");
 						try{
-							opcao3 = scan.nextInt();
-						scan.nextLine();
+							opcao4 = scan.nextInt();
+							scan.nextLine();
 						}catch(java.util.InputMismatchException exception){
+							scan.nextLine();
 						}
 						if (opcao4 >= 1 && opcao4 <=3){
 							break;
-						}
-						if (opcao4 <1 && opcao4 >3){
+						}else{
 							System.out.println("Opcao invalida, por favor escolher entre 1 ,2 e 3.");
-							scan.next();
 						}
 					}
 					if (opcao4 == 1){
 						System.out.println("Contratos Residenciais");
-						for (int i = 0; i<listaCadR.size(); i++){
-							System.out.println("Contrato numero " + i + "valor imovel " +listaCadR.get(i).getValorImovel());
-							
+						for (int i = 0; i<listaCadastroR.size(); i++){
+							System.out.println("Contrato numero " + (i+1) + "valor imovel " +listaCadastroR.get(i).getValorImovel());
 						}
 					}
 					if (opcao4 == 2){
 						System.out.println("Contratos Empresariais");
-						for (int i = 0; i<listaCadE.size(); i++){
-							System.out.println("Contrato numero " + i + " " +listaCadE.get(i).getValorImovel());
+						for (int i = 0; i<listaCadastroE.size(); i++){
+							System.out.println("Contrato numero " + (i+1) + " " +listaCadastroE.get(i).getValorImovel());
 						}
 					}
 					if (opcao4 == 3) {
 						System.out.println("Lista de Clientes");
-						for (int i = 0; i<listaCadR.size(); i++){
-							System.out.println("ClienteF numero " + i + " " +listaCadR.get(i).getValorImovel());
+						for (int i = 0; i<listaCadastroR.size(); i++){
+							System.out.println("ClienteF numero " + (i+1) + " " +listaCadastroR.get(i).getValorImovel());
 						}
-						for (int i = 0; i<listaCadE.size(); i++){
-							System.out.println("ClienteJ numero " + i + " " +listaCadE.get(i).getValorImovel());
+						for (int i = 0; i<listaCadastroE.size(); i++){
+							System.out.println("ClienteJ numero " + (i+1) + " " +listaCadastroE.get(i).getValorImovel());
 						}
 					}
 					break;
+					
 				case 5:
 					System.out.println("Funcao ainda nao disponivel!");
 					break;
