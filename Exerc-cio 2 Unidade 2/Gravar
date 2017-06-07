@@ -1,0 +1,22 @@
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.util.ArrayList;
+
+public class Grava {
+	
+	public void Gravar(ArrayList<Cliente>x){
+		for (int i=0; i<x.size(); i++)
+			try {
+				FileOutputStream fos = new FileOutputStream("Arquivo.ser");
+				ObjectOutputStream oos = new ObjectOutputStream(fos);
+				oos.writeObject(x);
+				oos.close();
+				
+			} catch (IOException e) { e.printStackTrace();}
+	
+		
+	}
