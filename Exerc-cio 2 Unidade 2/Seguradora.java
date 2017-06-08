@@ -10,6 +10,8 @@ public class Seguradora {
 		System.out.println("2 - Cadastrar Pessoa Juridica");
 		System.out.println("3 - Listar Cliente");
 		System.out.println("4 - Listar Contrato");
+		System.out.println("5 - Gravar em Arquivo");
+		System.out.println("6 - Ler do Arquivo");
 		System.out.println("0 - Sair\n");
 		
 		System.out.println("Entre com uma opcao: ");
@@ -30,6 +32,8 @@ public class Seguradora {
         ArrayList<Cliente>  listaClienteF  = new ArrayList<Cliente>();
         ArrayList<CadastroRes>  listaCadastroR  = new ArrayList<CadastroRes>();
         ArrayList<CadastroEmp>  listaCadastroE  = new ArrayList<CadastroEmp>();
+        
+        Grava grava = new Grava();
 
 
 		Scanner scan = new Scanner(System.in);
@@ -127,6 +131,8 @@ public class Seguradora {
 					
 					listaClienteF.add(clienteF);
 					listaCadastroR.add(cadRes);
+					
+					
 				
 					break;
 				}
@@ -320,16 +326,18 @@ public class Seguradora {
 					}
 					break;
 				}
-			case 5:
-					gravar.Gravar(listaClienteF);
+				case 5:{
+					grava.Gravar(listaClienteF);
 					break;
-			case 6:
-					gravar.Ler();	
+				}
+				case 6:{
+					listaClienteF = Grava.Ler();
 					break;
+				}
 			}
 			
-			if (opcao < 0 || opcao > 4){
-				System.out.println("Opcao invalida, por favor, tente um numero entre 0 e 4!");
+			if (opcao < 0 || opcao > 6){
+				System.out.println("Opcao invalida, por favor, tente um numero entre 0 e 6!");
 			}
 			
 		}
