@@ -1,7 +1,7 @@
 package unipe.br.projeto.java.seguradora;
 
 public class CadastroEmp extends PessoaJuridica {
-	
+	private static final long serialVersionUID = 1L;
 	public float valorImovel;
 	public int funcionarios;
 	public int visitasDiarias;
