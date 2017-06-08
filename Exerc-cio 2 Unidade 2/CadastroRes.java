@@ -1,6 +1,9 @@
 package unipe.br.projeto.java.seguradora;
 
-public class CadastroRes extends PessoaFisica {
+import java.io.Serializable;
+
+public class CadastroRes extends PessoaFisica implements Serializable {
+	
 	private static final long serialVersionUID = 1L;
 	public String endereco;
 	public float valorImovel;
@@ -40,6 +43,15 @@ public class CadastroRes extends PessoaFisica {
 		this.valorSeguroRes = valorSeguroRes;
 	}
 	
+	
+	/**
+	 * Função usada para calcular o valor do Seguro Residencial, de acordo com as porcentagens 
+	 * 
+	 * Recebe como @param o valor do Imovel, representado pela variavel valorImovel
+	 * Recebe como @param a zona do Imovel, representada pela variavel zona
+	 * Recebe como @param o tipo do Imovel, representado pela variavel tipo
+	 * Retorna um float @return valorSeguro, criado dentro da função
+	 */
 	public float calcularSeguroRes(float valorImovel, int zona, int tipo){
 		
 		float valorSeguro = 0;
