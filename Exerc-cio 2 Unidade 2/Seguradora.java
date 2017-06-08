@@ -16,15 +16,6 @@ public class Seguradora {
 		
 		System.out.println("Entre com uma opcao: ");
 	}
-	
-	public static int tipoCliente(int opt){
-		
-		Scanner scan = new Scanner(System.in);
-		
-		
-		scan.close();
-		return opt;
-	}
 
 	public static void main(String[] args) {
 		
@@ -48,28 +39,33 @@ public class Seguradora {
 			}catch(java.util.InputMismatchException e){
 				scan.nextLine();
 				System.out.println("Apenas valores numericos!");
+				continue;
 			}
 			switch(opcao){
 				
 				case 1:{
 					Cliente clienteF = new Cliente();
 					CadastroRes cadRes = new CadastroRes();
+					clienteF.nome = "";
+					cadRes.cpf = "";
+					cadRes.endereco = "";
 					cadRes.valorImovel = -1;
+					cadRes.zona = 0;
+					cadRes.tipo = 0;
+					cadRes.valorSeguroRes = 0;
+					
 						
 					System.out.println("Digite o nome: ");
 					clienteF.nome = scan.nextLine();
 					clienteF.setNome(clienteF.nome);
-					System.out.println("Nome " + clienteF.getNome());
 						
-					System.out.println("Digite o CPF (apenas os numeros): ");
+					System.out.println("Digite o CPF (Ex.: 000.000.000-00 , com pontos e hifen): ");
 					cadRes.cpf = scan.nextLine();
 					cadRes.setCpf(cadRes.cpf);
-					System.out.println("CPF " + cadRes.getCpf());
 					
 					System.out.println("Digite o endereco da residencia: ");
 					cadRes.endereco = scan.nextLine();
 					cadRes.setEndereco(cadRes.endereco);
-					System.out.println("Endereco " + cadRes.getEndereco());
 					
 					System.out.println("Digite o valor do Imovel: ");
 					while(cadRes.valorImovel <= 0.0){
@@ -85,7 +81,6 @@ public class Seguradora {
 						}
 					}
 					cadRes.setValorImovel(cadRes.valorImovel);
-					System.out.println("Valor " + cadRes.getValorImovel());
 					
 					System.out.println("Digite o numero correspondente a zona na qual esta localizada a residencia, Urbana[1], Suburbana[2] ou Rural[3]? ");
 					while(cadRes.zona < 1 || cadRes.zona >3 ){
@@ -104,7 +99,6 @@ public class Seguradora {
 						}
 					}
 					cadRes.setZona(cadRes.zona);
-					System.out.println("Zona " + cadRes.getZona());
 					
 					System.out.println("Digite o numero correspondente ao tipo de residencia, Apartamento[1]ou Casa[2]? ");
 					while(cadRes.tipo < 1 || cadRes.tipo >2 ){
@@ -123,11 +117,11 @@ public class Seguradora {
 						}
 					}
 					cadRes.setTipo(cadRes.tipo);
-					System.out.println("Tipo " + cadRes.getTipo());
 					
 					cadRes.valorSeguroRes = cadRes.calcularSeguroRes(cadRes.getValorImovel(), cadRes.getZona(),cadRes.getTipo());
 					cadRes.setValorSeguroRes(cadRes.valorSeguroRes);
-					System.out.println("Valor do Seguro R$" + cadRes.getValorSeguroRes());
+					
+					System.out.println("Cadastro concluído!");
 					
 					listaClienteF.add(clienteF);
 					listaCadastroR.add(cadRes);
@@ -141,19 +135,21 @@ public class Seguradora {
 
 					Cliente clienteJ = new Cliente();
 					CadastroEmp cadEmp = new CadastroEmp();
+					clienteJ.nome = "";
+					cadEmp.cnpj = "";
 					cadEmp.valorImovel = -1;
 					cadEmp.funcionarios = -1;
 					cadEmp.visitasDiarias = -1;
+					cadEmp.ramo = 0;
+					cadEmp.valorSeguroEmp = 0;
 					
 					System.out.println("Digite o nome: ");
 					clienteJ.nome = scan.nextLine();
 					clienteJ.setNome(clienteJ.nome);
-					System.out.println("Nome " + clienteJ.getNome());
 					
-					System.out.println("Digite o CNPJ (apenas os numeros): ");
+					System.out.println("Digite o CNPJ (Ex.: 00.000.000/0000-00 , com pontos, barra e hifen): ");
 					cadEmp.cnpj = scan.nextLine();
 					cadEmp.setCnpj(cadEmp.cnpj);
-					System.out.println("CNPJ " + cadEmp.getCnpj());
 					
 					System.out.println("Digite o valor do Imovel: ");
 					while(cadEmp.valorImovel <= 0.0){
@@ -165,11 +161,10 @@ public class Seguradora {
 							}
 						}catch (java.util.InputMismatchException e){
 							scan.nextLine();
-							System.out.println("Apenas valores numericos!");
+							System.out.println("Apenas valores numericos inteiros!");
 						}
 					}
 					cadEmp.setValorImovel(cadEmp.valorImovel);
-					System.out.println("Valor " + cadEmp.getValorImovel());
 					
 					System.out.println("Digite o numero de funcionarios (numero inteiro): ");
 					while(cadEmp.funcionarios < 0 ){
@@ -181,13 +176,10 @@ public class Seguradora {
 							}
 						}catch(java.util.InputMismatchException e){
 							scan.nextLine();
-							System.out.println("Apenas valores numericos!");
+							System.out.println("Apenas valores numericos inteiros!");
 						}
 					}
 					cadEmp.setFuncionarios(cadEmp.funcionarios);
-					System.out.println("Funcionarios " + cadEmp.getFuncionarios());
-					
-					
 					
 					System.out.println("Digite o numero de visitas diarias (numero inteiro): ");
 					while(cadEmp.visitasDiarias < 0){
@@ -203,7 +195,6 @@ public class Seguradora {
 						}
 					}
 					cadEmp.setVisitasDiarias(cadEmp.visitasDiarias);
-					System.out.println("Visitas Diarias " + cadEmp.getVisitasDiarias());
 					
 					System.out.println("Digite o numero correspondente ao ramo, Comercio[1], Industria[2] ou Agropecuaria[3]? ");
 					while(cadEmp.ramo < 1 || cadEmp.ramo >3 ){
@@ -222,11 +213,11 @@ public class Seguradora {
 						}
 					}
 					cadEmp.setRamo(cadEmp.ramo);
-					System.out.println("Ramo " + cadEmp.getRamo());
 					
 					cadEmp.valorSeguroEmp = cadEmp.calcularSeguroEmp(cadEmp.getValorImovel(), cadEmp.getFuncionarios(), cadEmp.getVisitasDiarias(), cadEmp.getRamo());
 					cadEmp.setValorSeguroEmp(cadEmp.valorSeguroEmp);
-					System.out.println("Valor do Seguro R$" + cadEmp.getValorSeguroEmp());
+					
+					System.out.println("Cadastro concluído!");
 					
 					listaClienteJ.add(clienteJ);
 					listaCadastroE.add(cadEmp);
@@ -265,11 +256,11 @@ public class Seguradora {
 					}
 					if (opcao3 == 3){
 						System.out.println("\n--- Lista de Clientes ---\n");
-						System.out.println("\n--- Clientes Pessoa Fisica ---\n");
+						System.out.println("\n--- Pessoa Fisica ---\n");
 						for (int i = 0; i<listaClienteF.size(); i++){
 							System.out.println("Nome do cliente " + (i+1) + ": " +listaClienteF.get(i).getNome()+ "\n");
 						}
-						System.out.println("\n--- Clientes Pessoa Juridica ---\n");
+						System.out.println("\n--- Pessoa Juridica ---\n");
 						for (int i = 0; i<listaClienteJ.size(); i++){
 							System.out.println("Nome do cliente " + (i+1) + ": " +listaClienteJ.get(i).getNome() + "\n");
 						}
@@ -297,7 +288,7 @@ public class Seguradora {
 						System.out.println("\n--- Contratos Residenciais ---\n");
 						for (int i = 0; i<listaCadastroR.size(); i++){
 							System.out.println("# Contrato numero " + (i+1) + " #\n");
-							System.out.println("Nome do Cliente: " +listaClienteF.get(i).getNome());
+							System.out.println("Nome do Cliente: " +listaClienteF.get(i).getNome() + "     CPF: " + listaCadastroR.get(i).getCpf());
 							System.out.println("Valor do Imovel R$" +listaCadastroR.get(i).getValorImovel() + "\n" + "Valor do Seguro R$" + listaCadastroR.get(i).getValorSeguroRes()+ "\n");
 						}
 					}
@@ -305,7 +296,7 @@ public class Seguradora {
 						System.out.println("\n--- Contratos Empresariais ---\n");
 						for (int i = 0; i<listaCadastroE.size(); i++){
 							System.out.println("# Contrato numero " + (i+1) + " #\n");
-							System.out.println("Nome do Cliente: " +listaClienteJ.get(i).getNome());
+							System.out.println("Nome do Cliente: " +listaClienteJ.get(i).getNome() + "     CNPJ: " + listaCadastroE.get(i).getCnpj());
 							System.out.println("Valor do Imovel R$" +listaCadastroE.get(i).getValorImovel() + "\n" + "Valor do Seguro R$" +listaCadastroE.get(i).getValorSeguroEmp()+ "\n");
 						}
 					}
@@ -314,13 +305,13 @@ public class Seguradora {
 						System.out.println("\n--- Pessoa Fisica ---\n");
 						for (int i = 0; i<listaCadastroR.size(); i++){
 							System.out.println("# Contrato numero " + (i+1)+ " #\n");
-							System.out.println("Nome do Cliente: " +listaClienteF.get(i).getNome());
+							System.out.println("Nome do Cliente: " +listaClienteF.get(i).getNome() + "     CPF: " + listaCadastroR.get(i).getCpf());
 							System.out.println("Valor do Imovel R$" +listaCadastroR.get(i).getValorImovel() + "\n" + "Valor do Seguro R$" + listaCadastroR.get(i).getValorSeguroRes()+ "\n");
 						}
 						System.out.println("\n--- Pessoa Juridica ---\n");
 						for (int i = 0; i<listaCadastroE.size(); i++){
 							System.out.println("# Contrato numero " + (i+1)+ " #\n");
-							System.out.println("Nome do Cliente: " +listaClienteJ.get(i).getNome());
+							System.out.println("Nome do Cliente: " +listaClienteJ.get(i).getNome() + "     CNPJ: " + listaCadastroE.get(i).getCnpj());
 							System.out.println("Valor do Imovel R$" +listaCadastroE.get(i).getValorImovel() +"\n" + "Valor do Seguro R$" +listaCadastroE.get(i).getValorSeguroEmp()+ "\n");
 						}
 					}
@@ -341,7 +332,6 @@ public class Seguradora {
 	                 break;
 				}
 			}
-			
 			if (opcao < 0 || opcao > 6){
 				System.out.println("Opcao invalida, por favor, tente um numero entre 0 e 6!");
 			}
