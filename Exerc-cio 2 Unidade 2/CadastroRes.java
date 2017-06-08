@@ -1,7 +1,7 @@
 package unipe.br.projeto.java.seguradora;
 
 public class CadastroRes extends PessoaFisica {
-	
+	private static final long serialVersionUID = 1L;
 	public String endereco;
 	public float valorImovel;
 	public int zona; //1 - zona Urbana; 2 - zona Suburbana; 3 - zona Rural
