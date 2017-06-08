@@ -1,8 +1,10 @@
 package unipe.br.projeto.java.seguradora;
+
 import java.io.Serializable;
 
-public class Cliente implements Serializable {
+public class Cliente implements Serializable{
 	
+	private static final long serialVersionUID = 1L;
 	public String nome;
 	public int tipoPessoa;
 	
@@ -19,5 +21,5 @@ public class Cliente implements Serializable {
 	public void setTipoPessoa(int tipoPessoa) {
 		this.tipoPessoa = tipoPessoa;
 	}
-		
+	
 }
