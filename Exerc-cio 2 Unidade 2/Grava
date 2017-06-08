@@ -22,7 +22,7 @@ public class Grava {
 	public void GravarE(ArrayList<Cliente> cliente){
 		
 		try {
-			FileOutputStream fos = new FileOutputStream("ArquivoE.ser");
+			FileOutputStream fos = new FileOutputStream("ArquivoJ.ser");
 			ObjectOutputStream oos = new ObjectOutputStream(fos);
 			oos.writeObject(cliente);
 			oos.close();
