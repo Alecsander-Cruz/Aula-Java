@@ -19,6 +19,7 @@ public class Seguradora {
 
 	public static void main(String[] args) {
 		
+		
 		ArrayList<Cliente>  listaClienteJ  = new ArrayList<Cliente>();
         ArrayList<Cliente>  listaClienteF  = new ArrayList<Cliente>();
         ArrayList<CadastroRes>  listaCadastroR  = new ArrayList<CadastroRes>();
