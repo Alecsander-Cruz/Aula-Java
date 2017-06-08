@@ -1,6 +1,7 @@
 package unipe.br.projeto.java.seguradora;
+import java.io.Serializable;
 
-public class Cliente {
+public class Cliente implements Serializable {
 	
 	public String nome;
 	public int tipoPessoa;
