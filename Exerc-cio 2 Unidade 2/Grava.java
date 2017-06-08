@@ -1,3 +1,5 @@
+package unipe.br.projeto.java.seguradora;
+
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -31,24 +33,24 @@ public class Grava {
 
 	
 }
-	public void GravarCR(ArrayList<CadastroRes> cliente){
+	public void GravarCR(ArrayList<CadastroRes> cadastroRes){
 		
 		try {
 			FileOutputStream fos = new FileOutputStream("ArquivoCR.ser");
 			ObjectOutputStream oos = new ObjectOutputStream(fos);
-			oos.writeObject(cliente);
+			oos.writeObject(cadastroRes);
 			oos.close();
 			
 		} catch (IOException e) { e.printStackTrace();}
 
 	
 }
-	public void GravarCE(ArrayList<CadastroEmp> cliente){
+	public void GravarCE(ArrayList<CadastroEmp> cadastroEmp){
 		
 		try {
-			FileOutputStream fos = new FileOutputStream("ArquivoCR.ser");
+			FileOutputStream fos = new FileOutputStream("ArquivoCE.ser");
 			ObjectOutputStream oos = new ObjectOutputStream(fos);
-			oos.writeObject(cliente);
+			oos.writeObject(cadastroEmp);
 			oos.close();
 			
 		} catch (IOException e) { e.printStackTrace();}
