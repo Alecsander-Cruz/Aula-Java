@@ -65,7 +65,7 @@ public class Grava {
 			lerclientes = (ArrayList<Cliente>) ois.readObject();
 			ois.close();
 		} catch (Exception e) {
-			e.printStackTrace();
+			
 		}
 		return lerclientes;
 	}
@@ -78,7 +78,7 @@ public class Grava {
 		lerclientes = (ArrayList<Cliente>) ois.readObject();
 		ois.close();
 	} catch (Exception e) {
-		e.printStackTrace();
+	
 	}
 	return lerclientes;
 }
@@ -90,7 +90,7 @@ public class Grava {
 			lercadastro = (ArrayList<CadastroRes>) ois.readObject();
 			ois.close();
 		} catch (Exception e) {
-			e.printStackTrace();
+		
 		}
 		return lercadastro;
 	}
@@ -102,7 +102,7 @@ public class Grava {
 			lercadastro = (ArrayList<CadastroEmp>) ois.readObject();
 			ois.close();
 		} catch (Exception e) {
-			e.printStackTrace();
+		
 		}
 		return lercadastro;
 	}
