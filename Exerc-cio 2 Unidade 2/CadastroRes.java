@@ -50,7 +50,7 @@ public class CadastroRes extends PessoaFisica implements Serializable {
 	 * Recebe como @param o valor do Imovel, representado pela variavel valorImovel
 	 * Recebe como @param a zona do Imovel, representada pela variavel zona
 	 * Recebe como @param o tipo do Imovel, representado pela variavel tipo
-	 * Retorna um float @return valorSeguro, criado dentro da função
+	 * Retorna um float @return valorSeguro, criado dentro da funcao
 	 */
 	public float calcularSeguroRes(float valorImovel, int zona, int tipo){
 		
