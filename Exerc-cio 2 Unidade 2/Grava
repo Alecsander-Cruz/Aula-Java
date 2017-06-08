@@ -58,7 +58,7 @@ public class Grava {
 	public static ArrayList<Cliente> LerF() {
 		ArrayList<Cliente> lerclientes = null;
 		try{
-			FileInputStream fis = new FileInputStream("ArquivoPF.ser");
+			FileInputStream fis = new FileInputStream("ArquivoF.ser");
 			ObjectInputStream ois = new ObjectInputStream(fis);
 			lerclientes = (ArrayList<Cliente>) ois.readObject();
 			ois.close();
@@ -71,7 +71,7 @@ public class Grava {
 	public static ArrayList<Cliente> LerJ() {
 	ArrayList<Cliente> lerclientes = null;
 	try{
-		FileInputStream fis = new FileInputStream("ArquivoPJ.ser");
+		FileInputStream fis = new FileInputStream("ArquivoJ.ser");
 		ObjectInputStream ois = new ObjectInputStream(fis);
 		lerclientes = (ArrayList<Cliente>) ois.readObject();
 		ois.close();
@@ -81,27 +81,27 @@ public class Grava {
 	return lerclientes;
 }
 	public static ArrayList<CadastroRes> LerCR() {
-		ArrayList<CadastroRes> lerclientes = null;
+		ArrayList<CadastroRes> lercadastro = null;
 		try{
 			FileInputStream fis = new FileInputStream("ArquivoCR.ser");
 			ObjectInputStream ois = new ObjectInputStream(fis);
-			lerclientes = (ArrayList<CadastroRes>) ois.readObject();
+			lercadastro = (ArrayList<CadastroRes>) ois.readObject();
 			ois.close();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		return lerclientes;
+		return lercadastro;
 	}
 	public static ArrayList<CadastroEmp> LerCE() {
-		ArrayList<CadastroEmp> lerclientes = null;
+		ArrayList<CadastroEmp> lercadastro = null;
 		try{
 			FileInputStream fis = new FileInputStream("ArquivoCE.ser");
 			ObjectInputStream ois = new ObjectInputStream(fis);
-			lerclientes = (ArrayList<CadastroEmp>) ois.readObject();
+			lercadastro = (ArrayList<CadastroEmp>) ois.readObject();
 			ois.close();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		return lerclientes;
+		return lercadastro;
 	}
 }
