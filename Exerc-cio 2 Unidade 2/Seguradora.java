@@ -327,12 +327,18 @@ public class Seguradora {
 					break;
 				}
 				case 5:{
-					grava.Gravar(listaClienteF);
-					break;
+					grava.GravarF(listaClienteF);
+                    grava.GravarE(listaClienteJ);
+                    grava.GravarCE(listaCadastroE);
+                    grava.GravarCR(listaCadastroR);
+                    break;
 				}
 				case 6:{
-					listaClienteF = Grava.Ler();
-					break;
+					 listaClienteF = grava.LerF();
+	                 listaClienteJ = grava.LerJ();
+	                 listaCadastroR = grava.LerCR();
+	                 listaCadastroE = grava.LerCE();
+	                 break;
 				}
 			}
 			
