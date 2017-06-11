@@ -18,16 +18,16 @@ public class Seguradora {
 	public static void main(String[] args) {
 		
 		ArrayList<Cliente>  listaClienteJ  = new ArrayList<Cliente>();
-        ArrayList<Cliente>  listaClienteF  = new ArrayList<Cliente>();
-        ArrayList<CadastroRes>  listaCadastroR  = new ArrayList<CadastroRes>();
-        ArrayList<CadastroEmp>  listaCadastroE  = new ArrayList<CadastroEmp>();
+        	ArrayList<Cliente>  listaClienteF  = new ArrayList<Cliente>();
+        	ArrayList<CadastroRes>  listaCadastroR  = new ArrayList<CadastroRes>();
+        	ArrayList<CadastroEmp>  listaCadastroE  = new ArrayList<CadastroEmp>();
         
-        Grava grava = new Grava();
+       		Grava grava = new Grava();
         
-        listaClienteF = grava.LerF();
-        listaClienteJ = grava.LerJ();
-        listaCadastroR = grava.LerCR();
-        listaCadastroE = grava.LerCE();
+        	listaClienteF = grava.LerF();
+        	listaClienteJ = grava.LerJ();
+        	listaCadastroR = grava.LerCR();
+        	listaCadastroE = grava.LerCE();
 
 
 		Scanner scan = new Scanner(System.in);
