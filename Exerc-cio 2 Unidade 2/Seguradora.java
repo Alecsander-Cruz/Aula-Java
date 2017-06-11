@@ -10,6 +10,8 @@ public class Seguradora {
 		System.out.println("2 - Cadastrar Pessoa Juridica");
 		System.out.println("3 - Listar Cliente");
 		System.out.println("4 - Listar Contrato");
+		System.out.println("5 - Gravar em Arquivo");
+		System.out.println("6 - Ler do Arquivo");
 		System.out.println("0 - Sair\n");
 		
 		System.out.println("Entre com uma opcao: ");
@@ -18,16 +20,11 @@ public class Seguradora {
 	public static void main(String[] args) {
 		
 		ArrayList<Cliente>  listaClienteJ  = new ArrayList<Cliente>();
-        	ArrayList<Cliente>  listaClienteF  = new ArrayList<Cliente>();
-        	ArrayList<CadastroRes>  listaCadastroR  = new ArrayList<CadastroRes>();
-        	ArrayList<CadastroEmp>  listaCadastroE  = new ArrayList<CadastroEmp>();
+        ArrayList<Cliente>  listaClienteF  = new ArrayList<Cliente>();
+        ArrayList<CadastroRes>  listaCadastroR  = new ArrayList<CadastroRes>();
+        ArrayList<CadastroEmp>  listaCadastroE  = new ArrayList<CadastroEmp>();
         
-       		Grava grava = new Grava();
-        
-        	listaClienteF = grava.LerF();
-        	listaClienteJ = grava.LerJ();
-        	listaCadastroR = grava.LerCR();
-        	listaCadastroE = grava.LerCE();
+        Grava grava = new Grava();
 
 
 		Scanner scan = new Scanner(System.in);
@@ -128,8 +125,6 @@ public class Seguradora {
 					
 					listaClienteF.add(clienteF);
 					listaCadastroR.add(cadRes);
-					grava.GravarF(listaClienteF);
-					grava.GravarCR(listaCadastroR);
 					
 					
 				
@@ -226,8 +221,6 @@ public class Seguradora {
 					
 					listaClienteJ.add(clienteJ);
 					listaCadastroE.add(cadEmp);
-					grava.GravarE(listaClienteJ);
-                    grava.GravarCE(listaCadastroE);
 					break;
 				}
 					
@@ -324,6 +317,20 @@ public class Seguradora {
 					}
 					break;
 				}
+				case 5:{
+					grava.GravarF(listaClienteF);
+                    grava.GravarE(listaClienteJ);
+                    grava.GravarCE(listaCadastroE);
+                    grava.GravarCR(listaCadastroR);
+                    break;
+				}
+				case 6:{
+					 listaClienteF = grava.LerF();
+	                 listaClienteJ = grava.LerJ();
+	                 listaCadastroR = grava.LerCR();
+	                 listaCadastroE = grava.LerCE();
+	                 break;
+				}
 				case 0:{
 					break;
 				}
@@ -333,7 +340,5 @@ public class Seguradora {
 			}
 		}
 		scan.close();
-
 	}
-
 }
